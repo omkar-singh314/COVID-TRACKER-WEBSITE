@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Services</title>
+	<link rel="stylesheet" type="text/css" href="servicestyle.css">
+	<meta name="viewport" content="width=device-width, initial scale=1.0">
+</head>
+<body>
+	<div class="first">
+		<h2 class="name">COVID LIVE STATS</h2>
+		<nav>
+    	<ul class="unordered">
+    		<li class="list"><a class="link" href="index.html">
+    			Home
+    		</li></a>
+    		<li class="list"><a class="link" href="services.html">
+    			Services
+    		</li></a>
+    		
+    		<li class="list"><a class="link" href="about.html">
+    			About
+    		</li></a>
+    		<li class="list"><a class="link" href="contact.html">
+    			Contact
+    		</li></a>
+    	</ul>
+    </nav>			
+
+	</div>
+	<div class="main">
+	<h1 class="headingmain">COVID TRACKER</h1>
+	<br><br>
+	<p class="para">
+		<form id="myform">
+			<h1 class="head1">ENTER THE COUNTRY NAME !!</h1>
+			<br>
+			<br>
+			<input type="text" id="country" placeholder=" ENTER THE COUNTRY" class="well">
+			<input type="submit" value="Get Data" class="submit">
+			</form>
+			<h1 id="confirmed" style="font-size: 40px;"></h1>
+			<h1 id="recovered" style="font-size: 40px;"></h1>
+			<h1 id="deaths" style="font-size: 40px;"></h1>
+			<h1 id="danger" style="font-size: 40px;"></h1>
+	</p>
+</div>
+
+
+</body>
+<!-- active actually means recovered in API-->
+<script>
+    const myform=document.getElementById("myform");
+    myform.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        const country=document.getElementById("country").value;
+        //alert("this is my "+country);
+        const url="https://api.covid19api.com/total/country/"+country;
+
+        fetch(url).then((res)=>res.json()).then((res)=>{
+            console.log(res);
+            const length=res.length;
+            const index=length-1;
+            const confirmed=document.getElementById("confirmed");
+            const recovered=document.getElementById("recovered");
+            const deaths=document.getElementById("deaths");
+			const danger=document.getElementById("danger");
+			const d1=res[index].Deaths;
+			const c1=res[index].Confirmed;
+			const r1=res[index].Active;
+			const a1=(c1-r1-d1);
+
+			const a=((d1/c1)*(100));
+			const b=((a1/c1)*(100));
+			const c=(a+b);
+			//console.log("hello"+c);
+            confirmed.innerHTML="";
+            recovered.innerHTML="";
+            deaths.innerHTML="";
+			danger.innerHTML="";
+            confirmed.append("TOTAL CONFIRMED : "+ res[index].Confirmed);
+            recovered.append("TOTAL RECOVERED : "+ res[index].Active);
+            deaths.append("TOTAL DEATHS : "+  res[index].Deaths);
+			danger.append("DANGER LEVEL : "+  c);
+        });
+    })
+</script>
+</html>

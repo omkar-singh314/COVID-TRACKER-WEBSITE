@@ -1,0 +1,90 @@
+.first{
+	display: flex;
+	background-color: black;
+}
+.unordered{
+	display: flex;
+	margin-left: 60%;
+	padding: 10px;
+}
+.name{
+	text-align: center;
+	margin: 10px;
+	padding: 10px;
+	margin-top: 30px;
+	font-size: 50px;
+	font-family: Georgia, sans-serif;
+	color: white;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background-image:url(images//image18.webp);
+	background-size: cover;
+}
+.list{
+	flex:1;
+	margin:5px;
+	padding: 7px;
+	color: black;
+	font: 20px cursive;
+	list-style: none;
+}
+.link{
+	color: white;
+}
+a:hover{
+  color: grey;
+}
+.headone{
+	text-align: center;
+	margin: 10px;
+	padding: 10px;
+	margin-top: 30px;
+	font-size: 60px;
+	font-family: Georgia, sans-serif;
+	color: white;
+}
+.whole{
+	display: flex;
+	margin: 10px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-left: 23%;
+	margin-right: 23%;
+
+}
+.element{
+	flex:2;
+	margin:10px;
+	padding: 10px;
+}
+.image1{
+	background-image:url(images//image9.jpg);
+	margin: 10px;
+	padding: 10px;
+	height: 150px;
+}
+.image2{
+	background-image:url(images//image10.jpg);
+	margin: 10px;
+	padding: 10px;
+	height: 150px;
+}
+.image3{
+	background-image:url(images//image11.jpg);
+	margin: 10px;
+	padding: 10px;
+	height: 150px;
+}
+.head{
+	font: cursive;
+	font-weight: bold;
+	font-style: italic;
+	color: black;
+}
+.para{
+	font-size: 20px;
+	font-family: cursive;
+}
